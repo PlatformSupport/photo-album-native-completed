@@ -5,7 +5,7 @@
   "AppIdentifier": "com.telerik.PhotoAlbumNativeCode",
   "DisplayName": "Photo Album Native Code",
   "Author": "",
-  "Description": "",
+  "Description": "Photo Album Native Code",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
