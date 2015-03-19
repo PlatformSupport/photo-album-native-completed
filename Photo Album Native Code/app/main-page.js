@@ -1,16 +1,11 @@
 // Application logic
 
 var modelModule = require("./view-model");
-var model = new modelModule.PhotoAlbumModel();
+var model = modelModule.photoAlbumModel;
 
 function onPageLoaded(args) {
   var page = args.object;
   page.bindingContext = model;
 };
 
-function buttonTap(args) {
-  model.tapAction();
-}
-
-exports.buttonTap = buttonTap;
 exports.onPageLoaded = onPageLoaded;

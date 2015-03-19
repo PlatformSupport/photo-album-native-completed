@@ -40,6 +40,9 @@ var item5 = {
 var item6 = {
     itemImage: imageFromSource("06.jpg")
 };
+
+array.push([item1, item2, item3, item4, item5, item6]);
+
 var item7 = {
     itemImage: imageFromSource("07.jpg")
 };
@@ -47,33 +50,11 @@ var item8 = {
     itemImage: imageFromSource("08.jpg")
 };
 
-array.push([item1, item2, item3, item4, item5, item6]);
-
-var __extends = this.__extends || function (d, b) {
-    for (var p in b)
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-
-    function __() {
-        this.constructor = d;
-    }
-    __.prototype = b.prototype;
-    d.prototype = new __();
-};
-
-var PhotoAlbumModel = (function (_super) {
-    __extends(PhotoAlbumModel, _super);
-
-    function PhotoAlbumModel() {
-        _super.call(this);
-        // Step 5 - Action a
-        this.set("message", "Add new images");
-    }
-
-    return PhotoAlbumModel;
-})(observable.Observable);
+var photoAlbumModel = new observable.Observable();
+photoAlbumModel.set("message", "Add new images");
 
 var backendArray = new observableArrayModule.ObservableArray();
-Object.defineProperty(PhotoAlbumModel.prototype, "photoItems", {
+Object.defineProperty(photoAlbumModel, "photoItems", {
     get: function () {
         everlive.Files.get().then(function (data) {
                 data.result.forEach(function (fileMetadata) {
@@ -94,7 +75,7 @@ Object.defineProperty(PhotoAlbumModel.prototype, "photoItems", {
     configurable: true
 });
 
-PhotoAlbumModel.prototype.tapAction = function () {
+photoAlbumModel.tapAction = function () {
     array.push(item7);
     array.push(item8);
 
@@ -114,4 +95,4 @@ PhotoAlbumModel.prototype.tapAction = function () {
     }
 };
 
-exports.PhotoAlbumModel = PhotoAlbumModel;
+exports.photoAlbumModel = photoAlbumModel;
